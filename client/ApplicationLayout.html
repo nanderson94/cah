@@ -1,0 +1,54 @@
+<template name="ApplicationLayout">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="off-canvas-wrap" data-magellan-destination="top">
+    <a name="top"></a>
+      <div class="inner-wrap">
+        <!-- Desktop navigation -->
+          <div id="nav" class="contain-to-grid" data-magellan-expedition="fixed">
+            <nav class="top-bar hide-for-small contain-to-grid" data-topbar>
+              <ul class="title-area">
+                <li class="name">
+                  <h1><a href="#">Carbs Aren't Healthy</a></h1>
+                </li>
+              </ul>
+              <section class="top-bar-section">
+                <ul class="right">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/new">New Game</a></li>
+                  <li><a href="/games">Running Games</a></li>
+                  <li><a href="/recent">Recent Plays</a></li>
+                </ul>
+              </section>
+            </nav>
+          </div>
+        <!-- Mobile navigation -->
+          <nav class="tab-bar show-for-small" data-topbar role="navigation">
+            <section class="left-small">
+              <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+            </section>
+            <section class="middle tab-bar-section">
+              <h1 class="title">Nicholas Anderson</h1>
+            </section>
+          </nav>
+          <aside class="left-off-canvas-menu" id="off-canvas">
+            <ul class="off-canvas-list">
+              <li><label>Carbs Aren't Healthy</label></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/new">New Game</a></li>
+              <li><a href="/games">Running Games</a></li>
+              <li><a href="/recent">Recent Plays</a></li>
+            </ul>
+          </aside>
+        <!-- End navigation -->
+        <section class="main-section">
+            {{> yield }}
+        </section>
+        <a class="exit-off-canvas"></a>
+      </div>
+    </div>
+  </body>
+</template>
