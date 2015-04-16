@@ -1,7 +1,42 @@
 <template name="New">
-  <form id="newGame">
-    <input type="text" placeholder="Room Title" id="roomTitle">
-    <input type="number" min="1" max="50" id="Wins">
-    <input type="submit" value="next">
-  </form>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1>Create Room</h1>
+      <p class="lead">
+        The first step to your Carbs Aren't Healthy adventure!
+      </p>
+      <form id="newGame">
+        <label for="roomTitle">
+          Room Title:
+          <input type="text" placeholder="Biggest Blackest Room" id="roomTitle">
+        </label>
+        <small id="roomTitleErr" style="display:none" class="error"></small>
+        <label for="gamesToWin">
+          Games Needed to Win:
+          <input type="number" placeholder="15" step="1" min="1" id="gamesToWin">
+        </label>
+        <small id="gamesToWinErr" style="display:none" class="error">This must be a whole number!</small>
+        <label for="maxPlayers">
+          Maximum Players:
+          <input type="number" placeholder="4" step="1" min="2" max="8" id="maxPlayers">
+        </label>
+        <label for="roomPrivacy">
+          Room Privacy:
+          <select id="roomPrivacy">
+            <option selected value="public">Anyone can join/view</option>
+            <option value="invite">Invite Only - Anyone can view</option>
+            <option value="private">Invite Only - Unlisted</option>
+          </select>
+        </label>
+        <label for="gamePacks">
+          Game Packs (not implemented):
+          <select multiple id="gamePacks">
+            <option selected id="core">Core packs</option>
+            <option selected id="expansions">Expansion packs</option>
+          </select>
+        </label>
+        <input class="button expand" type="submit" value="Play!">
+      </form>
+    </div>
+  </div>
 </template>

@@ -5,7 +5,9 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 iron:router
 ewall:foundation
+artwells:accounts-guest
+accounts-base
+accounts-password
+accounts-ui

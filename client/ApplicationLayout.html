@@ -4,11 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <div class="off-canvas-wrap" data-magellan-destination="top">
+    <div class="off-canvas-wrap">
     <a name="top"></a>
       <div class="inner-wrap">
         <!-- Desktop navigation -->
-          <div id="nav" class="contain-to-grid" data-magellan-expedition="fixed">
+          <div id="nav" class="contain-to-grid">
             <nav class="top-bar hide-for-small contain-to-grid" data-topbar>
               <ul class="title-area">
                 <li class="name">
@@ -21,6 +21,17 @@
                   <li><a href="/new">New Game</a></li>
                   <li><a href="/games">Running Games</a></li>
                   <li><a href="/recent">Recent Plays</a></li>
+                  <li class="has-dropdown">
+                    <a href="#">{{ username }}</a>
+                    <ul class="dropdown">
+                      {{#if isGuestUser }}
+                        <li><a href="#" data-reveal-id="loginModal">Login</a></li>
+                        <li><a href="#" id="logout">Reset Name & Stats</a></li>
+                      {{else}}
+                        <li><a href="#" id="logout">Logout</a></li>
+                      {{/if}}
+                    </ul>
+                  </li>
                 </ul>
               </section>
             </nav>
@@ -45,7 +56,50 @@
           </aside>
         <!-- End navigation -->
         <section class="main-section">
-            {{> yield }}
+          <div id="loginModal" class="reveal-modal" data-reveal aria-lablledby="loginModalTitle" aria-hidden="true" role="dialog">
+            <h2 id="loginModalTitle">Login or Signup!</h2>
+            <div class="row">
+              <div class="large-6 medium-12 columns" style="border-right: rgb(231, 231, 231) 1px solid">
+                <form id="loginForm">
+                  <label for="loginUsername">
+                    Username or Email:
+                    <input type="text" id="loginUsername" placeholder="johndoe@example.com">
+                  </label>
+                  <small class="error" style="display:none" id="loginError"></small>
+                  <label for="loginPassword">
+                    Password:
+                    <input type="password" id="loginPassword" placeholder="$upeRs33kr1t">
+                  </label>
+                  <input type="submit" class="button expand" value="Login">
+                </form>
+                <button class="expand secondary" id="forgotPassword">Forgot Password?</button>
+                <button class="expand secondary" id="resendVerification">Resend Verification Email</button>
+              </div>
+              <div class="large-6 medium-12 columns">
+                <form id="signupForm">
+                  <label for="signupEmail">
+                    Email Address:
+                    <input type="text" id="signupEmail" placeholder="johndoe@example.com">
+                  </label>
+                  <label for="signupUsername">
+                    Username:
+                    <input type="text" id="signupUsername" placeholder="jdoe123">
+                  </label>
+                  <label for="signupPassword">
+                    Password:
+                    <input type="password" id="signupPassword" placeholder="Correct Horse Battery Staple">
+                  </label>
+                  <label for="signupConfirm">
+                    Confirm Password:
+                    <input type="password" id="signupConfirm" placeholder="Correct Horse Battery Staple">
+                    <small class="error" style="display:none" id="signupMatch">These passwords don't match!</small>
+                  </label>
+                  <input type="submit" class="button expand" value="Signup">
+                </form>
+              </div>
+            </div>
+          </div>
+          {{> yield }}
         </section>
         <a class="exit-off-canvas"></a>
       </div>
